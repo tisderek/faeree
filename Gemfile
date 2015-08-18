@@ -41,8 +41,19 @@ group :development, :test do
   gem 'pry-rails'
   # Spring speeds up development by keeping your application running in the background. Read more: https://github.com/rails/spring
   gem 'spring'
+
+	gem 'better_errors'
 end
 
+group :test do
+	gem 'simplecov', :require => false
+	gem 'factory_girl_rails'
+	gem 'rspec-rails'
+	gem 'rails_helper'
+	gem 'selenium-webdrive'
+	gem 'capybara'
+	gem 'faker'
+end
 # For Heroku deployment
 gem 'rails_12factor', group: :production
 ruby "2.2.2"

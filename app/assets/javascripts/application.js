@@ -53,7 +53,7 @@ $(document).ready(function() {
   })
 
   // $('.pusher').css('min-height','none')
-//SESSION
+//cookies
 
   // phone number emdashes in login/signup form
   jQuery(function($){
