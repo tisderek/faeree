@@ -1,4 +1,6 @@
 class UsersController < ApplicationController
+  include MainHelper
+
   def show
   end
 
@@ -9,6 +11,7 @@ class UsersController < ApplicationController
   def edit
     
   end
+
 
   def create
     @user = User.new(user_params)
@@ -36,9 +39,4 @@ class UsersController < ApplicationController
     params.require(:user).permit(:name,:phone_number,:email,:password)
   end
 
-  #RF RAILS CONCERNS
-  def user
-    @user ||= User.find_by(token: cookies[:token])
-    # User.find(1)
-  end
 end

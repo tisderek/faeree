@@ -1,4 +1,6 @@
 class ContactsController < ApplicationController
+  include MainHelper
+  
   def index
     user_contacts = user.contacts
     if request.xhr?
