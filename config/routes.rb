@@ -1,5 +1,17 @@
 Rails.application.routes.draw do
 
+  get 'contacts/_index'
+
+  get 'contacts/_show'
+
+  get 'contacts/_new'
+
+  get 'contacts/create'
+
+  get 'contacts/update'
+
+  get 'contacts/destroy'
+
   # Routes with customizations
 
   get 'main/options', path: '/options', as:'options'

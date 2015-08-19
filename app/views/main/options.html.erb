@@ -4,7 +4,7 @@
 
 		<div class="ui padded basic vertical segment">
 
-			<%# if user.contacts.count == 0 %>
+			<% if user.contacts.count == 0 %>
 				<div class="ui text container" id="add-contact-container" >
 					<h2 class="ui header">
 						<i class="users icon"></i>
@@ -19,21 +19,24 @@
 					<%#= render "contacts/new", layout: false %>
 
 				</div>
-			<%# else %>
-				<div class="ui text container" id="user-contacts-container" >
+			<% else %>
+				<div class="ui container" id="user-contacts-container" >
 					<h2 class="ui header">
 						<i class="users icon"></i>
 						Contacts
 					</h2>
 					If you share your vehicle, Faeree can send personalized text messages to keep them in the loop.
 				</div>
-				<div id="content-col" class="ui basic segment">
+				<div id="content-col" class="ui basic vertical segment">
+					<!-- What's the difference between the three below? They all work, but which is optimal and why? -->
+					<%= render "contacts/index" %>
+					<%#= render partial: "contacts/index" %>
 					<%#= render "contacts/index", layout: false %>
-					<%#= erb :"contacts/_index", layout: false %>
+					<%#= render partial: "contacts/index", layout: false %>
 				</div>
-			<%# end %>
+			<% end %>
 
-			<div class="ui padded vertical segment ">
+			<div class="ui padded vertical segment">
 				<div id="acct-options">
 					<%= render "users/show", layout: false %>
 				</div>
