@@ -1,5 +1,19 @@
 Rails.application.routes.draw do
-  root 'welcome#index'
+
+  # Routes with customizations
+
+  get 'main/options', path: '/options', as:'options'
+  get 'main/upgrade', path: '/upgrade', as:'upgrade'
+  get 'main/dashboard', as:'dashboard'
+
+
+  resource :users, only: [:show, :edit, :create, :update, :destroy]
+  resource :session, only: [:create, :destroy]
+
+  root 'main#index'
+
+end
+
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 
@@ -54,4 +68,3 @@ Rails.application.routes.draw do
   #     # (app/controllers/admin/products_controller.rb)
   #     resources :products
   #   end
-end

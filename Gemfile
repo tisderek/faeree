@@ -38,11 +38,30 @@ group :development, :test do
 
   # Access an IRB console on exception pages or by using <%= console %> in views
   gem 'web-console', '~> 2.0'
-
+  gem 'pry-rails'
   # Spring speeds up development by keeping your application running in the background. Read more: https://github.com/rails/spring
   gem 'spring'
+
+	gem 'better_errors'
+	gem "binding_of_caller"
 end
 
+group :test do
+	gem 'simplecov', :require => false
+	gem 'factory_girl_rails'
+	gem 'rspec-rails'
+	gem 'rails_helper'
+	gem 'selenium-webdriver'
+	gem 'capybara'
+	gem 'faker'
+	gem 'database_cleaner'
+	gem 'nyan-cat-formatter'
+end
+# For Heroku deployment
 gem 'rails_12factor', group: :production
-
 ruby "2.2.2"
+
+
+gem 'less-rails-semantic_ui'
+gem 'autoprefixer-rails'
+gem 'therubyracer'
