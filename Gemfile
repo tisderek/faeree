@@ -42,6 +42,7 @@ group :development, :test do
   # Spring speeds up development by keeping your application running in the background. Read more: https://github.com/rails/spring
   gem 'spring'
 
+  #better errors
 	gem 'better_errors'
 	gem "binding_of_caller"
 end
@@ -61,7 +62,13 @@ end
 gem 'rails_12factor', group: :production
 ruby "2.2.2"
 
-
+# Semantic UI
 gem 'less-rails-semantic_ui'
 gem 'autoprefixer-rails'
 gem 'therubyracer'
+
+# Core app gems
+gem 'geokit'
+gem 'rgeo-shapefile'
+gem 'twilio-ruby'
+gem 'dotenv'

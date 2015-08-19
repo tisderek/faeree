@@ -7,10 +7,13 @@ Rails.application.routes.draw do
   get 'main/dashboard', as:'dashboard'
 
 
-  resource :users, only: [:show, :edit, :create, :update, :destroy]
+  resource :users, only: [:show, :edit, :create, :update, :destroy] do
+    resource :contacts, :events
+  end
+
   resource :session, only: [:create, :destroy]
 
-  root 'main#index'
+  root 'main#home'
 
 end
 

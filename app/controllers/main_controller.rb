@@ -6,7 +6,7 @@ class MainController < ApplicationController
   	login
   end
 
-	def index
+	def home
 		if logged_in?
 			render 'dashboard'
 		else
