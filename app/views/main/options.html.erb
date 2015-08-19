@@ -33,6 +33,12 @@
 					<%#= render partial: "contacts/index" %>
 					<%#= render "contacts/index", layout: false %>
 					<%#= render partial: "contacts/index", layout: false %>
+					<div class="ui basic vertical segment">
+						<%= link_to "contacts/new", class: "ui labeled icon button", id:"add-contact-btn" do %>
+							<i class="add user icon"></i>
+							Add Contact
+						<% end %>
+					</div>					
 				</div>
 			<% end %>
 

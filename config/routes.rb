@@ -1,26 +1,15 @@
 Rails.application.routes.draw do
 
-  get 'contacts/_index'
-
-  get 'contacts/_show'
-
-  get 'contacts/_new'
-
-  get 'contacts/create'
-
-  get 'contacts/update'
-
-  get 'contacts/destroy'
-
   # Routes with customizations
 
-  get 'main/options', path: '/options', as:'options'
-  get 'main/upgrade', path: '/upgrade', as:'upgrade'
-  get 'main/dashboard', as:'dashboard'
+  get 'main/options',   path: '/options',   as:'options'
+  get 'main/upgrade',   path: '/upgrade',   as:'upgrade'
+  get 'main/dashboard',                     as:'dashboard'
 
 
   resource :users, only: [:show, :edit, :create, :update, :destroy] do
-    resource :contacts, :events
+    resource :contacts
+    resource :events
   end
 
   resource :session, only: [:create, :destroy]

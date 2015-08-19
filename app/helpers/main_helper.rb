@@ -4,8 +4,9 @@ module MainHelper
     !!cookies[:token] && user
   end
 
-  # def user
-  #   @user ||= User.find_by(token: cookies[:token])
-  #   # User.find(1)
-  # end	
+  #RF RAILS CONCERNS
+  def user
+    @user ||= User.find_by(token: cookies[:token])
+    # User.find(1)
+  end	
 end

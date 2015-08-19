@@ -62,17 +62,22 @@ $(document).ready(function() {
   });
 
 //CONTACTS
-
+  //RAILS Removed since cant do it with rails
   // append add contact form
-  $('#add-contact-btn').on('click', function(){
-    event.preventDefault();
-    $.ajax({
-      url: '/contacts/new',
-    }).done(function(rData){
-      console.log(rData);
-      $('#user-contacts').append(rData);
-    })
-  })
+  // $('#add-contact-btn').on('click', function(){
+  //   event.preventDefault();
+  //   $.ajax({
+  //     url: '/contacts/new',
+  //   }).done(function(rData){
+  //     console.log(rData);
+  //     $('#user-contacts').append(rData);
+  //   })
+  // })
+
+  //RAILS moved from btm of options page to here, still doesn't work
+  // accordion
+  $('.ui.accordion').accordion()
+
 
 //NAV
 

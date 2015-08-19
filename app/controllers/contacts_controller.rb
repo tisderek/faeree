@@ -5,12 +5,13 @@ class ContactsController < ApplicationController
       render partial "contacts/index", layout: false, locals: { contacts: user_contacts}
     else
       render "contacts/index", locals: { contacts: user_contacts}
+    end
   end
 
-  def _show
+  def show
   end
 
-  def _new
+  def new
   end
 
   def create
