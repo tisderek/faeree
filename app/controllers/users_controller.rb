@@ -20,6 +20,11 @@ class UsersController < ApplicationController
   end
 
   def update
+    if user.update(user_params)
+      redirect_to options_path
+    else
+      render 'edit'
+    end
   end
 
   def destroy
@@ -29,5 +34,11 @@ class UsersController < ApplicationController
 
   def user_params
     params.require(:user).permit(:name,:phone_number,:email,:password)
+  end
+
+  #RF RAILS CONCERNS
+  def user
+    @user ||= User.find_by(token: cookies[:token])
+    # User.find(1)
   end
 end

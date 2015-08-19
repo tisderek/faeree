@@ -7,7 +7,7 @@ module UsersHelper
   #RF RAILS CONCERNS
 	def user
 	  @user ||= User.find_by(token: cookies[:token])
-	  User.find(1)
+	  # User.find(1)
 	end
 
 	def username

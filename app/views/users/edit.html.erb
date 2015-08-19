@@ -4,7 +4,7 @@
 		Edit Account
 	</h2>
 	<br>
-<%= form_for :user, url: edit_users_path, method:"PUT", html: {class: "ui large fluid form", id:"acct-edit-form"} do |f| %>
+<%= form_for :user, url: users_path(:user), method:"PUT", html: {class: "ui large fluid form", id:"acct-edit-form"} do |f| %>
 	<% if user.errors.any? %>
 		<div id="error_explanation">
 			<h3>
