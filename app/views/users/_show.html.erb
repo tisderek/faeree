@@ -1,0 +1,55 @@
+<div id="user-show" >
+  <h2 class="ui header">
+    <i class="smile icon"></i>
+    Account
+  </h2>
+  <div class="ui large very relaxed list">
+    <div class="item">
+      <i class="user icon"></i>
+      <div class="content">
+        Name: <b><%= user.name %></b>
+      </div>
+    </div>
+    <div class="item">
+      <i class="mobile icon"></i>
+      <div class="content">
+        Phone number: <b><%= display_phone(user.phone_number) %></b>
+      </div>
+    </div>
+    <div class="item">
+      <i class="at icon"></i>
+      <div class="content">
+        Email: <b><%= user.email %></b>
+      </div>
+    </div>
+    <div class="item">
+      <i class="car icon"></i>
+      <div class="content">
+        Parkings remaining: <b> 8 </b>
+      </div>
+    </div>  
+    <div class="item">
+      <i class="users icon"></i>
+      <div class="content">
+        Contacts remaining: <b> 1 </b>
+      </div>
+    </div>  
+    <div class="item">
+      <i class="send icon"></i>
+      <div class="content">
+        Texts remaining: <b> 4 </b>
+      </div>
+    </div>
+    <div class="item">
+      <i class="lightning icon"></i>
+      <div class="content">
+        Plan: <b> Faeree Free </b>
+      </div>
+    </div>
+  </div>
+  <%=  link_to upgrade_path, {class: "ui blue button"} do %>
+    <i class="icon rocket"></i>
+    Upgrade
+  <% end %>   
+  <%=  link_to 'Edit', edit_users_path, class: "ui basic grey button"  %>
+</div>
