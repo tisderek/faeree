@@ -43,6 +43,7 @@ group :development, :test do
   gem 'spring'
 
 	gem 'better_errors'
+	gem "binding_of_caller"
 end
 
 group :test do
@@ -50,9 +51,11 @@ group :test do
 	gem 'factory_girl_rails'
 	gem 'rspec-rails'
 	gem 'rails_helper'
-	gem 'selenium-webdrive'
+	gem 'selenium-webdriver'
 	gem 'capybara'
 	gem 'faker'
+	gem 'database_cleaner'
+	gem 'nyan-cat-formatter'
 end
 # For Heroku deployment
 gem 'rails_12factor', group: :production

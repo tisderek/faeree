@@ -1,18 +1,19 @@
 Rails.application.routes.draw do
-  
-  get 'users/show'
 
-  get 'users/new'
+  # Routes with customizations
 
-  get 'users/edit'
+  get 'main/options', path: '/options', as:'options'
+  get 'main/upgrade', path: '/upgrade', as:'upgrade'
+  get 'main/dashboard', as:'dashboard'
 
-  get 'users/create'
 
-  get 'users/update'
+  resource :users, only: [:show, :edit, :create, :update, :destroy]
+  resource :session, only: [:create, :destroy]
 
-  get 'users/destroy'
+  root 'main#index'
 
-  root 'welcome#index'
+end
+
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 
@@ -67,4 +68,3 @@ Rails.application.routes.draw do
   #     # (app/controllers/admin/products_controller.rb)
   #     resources :products
   #   end
-end
