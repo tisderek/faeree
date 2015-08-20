@@ -57,8 +57,10 @@ $(document).ready(function() {
 
   // phone number emdashes in login/signup form
   jQuery(function($){
-     $("#signup_phone_number").mask("(999) 999-9999");
-     $("#login_phone_number").mask("(999) 999-9999");
+     $("#signup_phone").mask("(999) 999-9999");
+     $("#login_phone").mask("(999) 999-9999");
+     $("#users_phone").mask("(999) 999-9999");
+     $("#users_contacts_contact_phone").mask("(999) 999-9999");
   });
 
 //CONTACTS

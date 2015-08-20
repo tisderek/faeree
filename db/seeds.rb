@@ -9,19 +9,19 @@
 User.create(
     name: "Derek",
     email: "the@admin.com",
-    phone_number: 4154168654,
+    phone: 4154168654,
     password: 123123
   )
 
 
 Contact.create(
     contact_name: "Leo",
-    contact_phone_number: 9172735014,
+    contact_phone: 9172735014,
     user_id: 1
   )
 
 Contact.create(
     contact_name: "Karen",
-    contact_phone_number: 4152239884,
+    contact_phone: 4152239884,
     user_id: 1
   )

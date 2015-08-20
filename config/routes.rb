@@ -6,12 +6,15 @@ Rails.application.routes.draw do
   get 'main/upgrade',   path: '/upgrade',   as:'upgrade'
   get 'main/dashboard',                     as:'dashboard'
 
+  # scope '/users' do
+  #   resources :contact
+  # end  
+
 
   resource :users, only: [:show, :edit, :create, :update, :destroy] do
-    resource :contacts
-    resource :events
+      resource :contacts
+      # resource :events
   end
-
   resource :session, only: [:create, :destroy]
 
   root 'main#home'

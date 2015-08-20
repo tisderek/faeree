@@ -1,34 +1,6 @@
-  <div id="user-contacts" class="ui grid container">
-    <div class="column">
-      <div class="ui accordion">
-        <% user.contacts.each do |c| %>
-          <div class="title">
-            <i class="dropdown icon"></i>
-            <%= c.contact_name %>
-          </div>
-          <div class="ui content">
-            <div class="ui two column stackable grid container">
-              <div class="column">
-                <i class="phone icon"></i>  <%= display_phone(c.contact_phone_number) %>
-              </div>
-              <div class="column">
-                <div class="ui disabled toggle checkbox">
-                  <input type="checkbox" name="public">
-                  <label>Text parked location &amp; street sweeping info </label>
-                </div>
-                <div class="ui disabled toggle checkbox">
-                  <input type="checkbox" name="public">
-                  <label>Text street sweeping reminders </label>
-                </div>
-              </div>
-            </div>
-          </div>
-        <% end %>
-      </div>
-  	</div>
-  </div>
-  <script>
-    $('.ui.accordion').accordion()
+<div class="ui doubling three cards">
+  <%= render user.contacts %>
+</div>
 
-  </script>
+
 

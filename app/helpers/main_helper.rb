@@ -13,13 +13,13 @@ module MainHelper
 		#RF BCrypt version
 	  # @user = User.new(
 	  #   name: params[:name],
-	  #   phone_number: just_nums(params[:phone_number]),
+	  #   phone: just_nums(params[:phone]),
 	  #   email: params[:email]
 	  #   )
 	  # @user.password = params[:password]
 	  @user = User.new(
 	    name: params[:name],
-	    phone_number: just_nums(params[:phone_number]),
+	    phone: just_nums(params[:phone]),
 	    email: params[:email]
 	    )
 	  @user.password = params[:password]
@@ -27,7 +27,7 @@ module MainHelper
   
 	def login
 	  user_to_login = User.find_by(
-	    phone_number: just_nums(params[:phone_number])
+	    phone: just_nums(params[:phone])
 	  )
 	  # BCrypt version
 	  # if user_to_login.password == params[:password]
@@ -59,8 +59,8 @@ module MainHelper
 	  }
 	end
 
-	def just_nums(phone_number)
-	  phone_number.gsub(/[^\d]/, "")
+	def just_nums(phone)
+	  phone.gsub(/[^\d]/, "")
 	end
 
 end

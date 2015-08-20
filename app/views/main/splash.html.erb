@@ -43,7 +43,7 @@
               <div class="field">
                 <div class="ui left icon input">
                   <i class="phone icon"></i>
-                  <input <input type="tel" name="phone_number" id="login_phone_number" placeholder="Phone Number" novalidate>
+                  <input <input type="tel" name="phone" id="login_phone" placeholder="Phone Number" novalidate>
                 </div>
               </div>
               <div class="field">
@@ -76,7 +76,7 @@
               <div class="field">
                 <div class="ui left icon input">
                   <i class="phone icon"></i>
-                  <input type="tel" name="phone_number" id="signup_phone_number" placeholder="Phone number" value="<%= !!@user ? @user.phone_number : "" %>" novalidate>
+                  <input type="tel" name="phone" id="signup_phone" placeholder="Phone number" value="<%= !!@user ? @user.phone : "" %>" novalidate>
                 </div>
               </div>
               <div class="field">
