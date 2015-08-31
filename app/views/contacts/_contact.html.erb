@@ -1,12 +1,11 @@
-<div class="raised card">
+<div class="card">
   <div class="content">
-    <h5 class="header"> <%= contact.contact_name %> </h5>
-    <div class="content">
+    <h4 class="header"> <%= contact.contact_name %> </h4>
+      <i class:"mobile icon"></i> 
       <%= display_phone(contact.contact_phone) %>
     </div>
-  </div>
   <div class="ui two bottom attached small buttons">
-    	<%= link_to users_contacts_path, method: :put, class: "ui grey basic vertical animated button" do %>
+    	<%= link_to edit_users_contacts_path(contact), class: "ui grey basic vertical animated button" do %>
     	<div class="visible content"> <i class="pencil icon"></i> </div>
     	<div class="hidden content"> Edit </div>
     	<% end %>
@@ -17,5 +16,4 @@
     	<% end %> 
     </div>
   </div>
-
 

@@ -46,7 +46,6 @@
 			</div>
 			<% end %>
 		</div>
-		
 		<div class="ui padded basic vertical segment">
 			<div class="ui container" id="user-show-container" >
 				<h2 class="ui header">
@@ -57,10 +56,12 @@
 				<div id="acct-options" class="ui content" >
 
 					<%= render partial: "users/show" %>
+
 					<%=  link_to upgrade_path, {class: "ui blue button"} do %>
 					<i class="icon rocket"></i>
 					Upgrade
-					<% end %>   
+					<% end %> 
+
 					<%=  link_to 'Edit', edit_users_path, class: "ui basic grey button"  %>
 				</div>
 			</div>
