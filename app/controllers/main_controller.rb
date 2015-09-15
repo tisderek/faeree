@@ -1,4 +1,6 @@
 class MainController < ApplicationController
+	include MainHelper
+	
   def session_destroy
   end
 

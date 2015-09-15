@@ -44,9 +44,10 @@ group :development, :test do
   # Spring speeds up development by keeping your application running in the background. Read more: https://github.com/rails/spring
   gem 'spring'
 
-  #better errors
+  # better errors
 	gem 'better_errors'
 	gem "binding_of_caller"
+
 end
 
 # For Heroku deployment

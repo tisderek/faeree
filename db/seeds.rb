@@ -3,7 +3,7 @@ require 'rgeo/shapefile'
 User.create(
     name: "Derek",
     email: "the@admin.com",
-    phone_number: 4154168654,
+    phone: 4154168654,
     password: 123123
 )
 
@@ -39,3 +39,15 @@ RGeo::Shapefile::Reader.open(itineraries_seed_file) do |file|
   file.rewind
   record = file.next
 end
+
+Contact.create(
+    contact_name: "Leo",
+    contact_phone: 9172735014,
+    user_id: 1
+  )
+
+Contact.create(
+    contact_name: "Karen",
+    contact_phone: 4152239884,
+    user_id: 1
+  )

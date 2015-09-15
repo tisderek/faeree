@@ -1,0 +1,19 @@
+<div class="card">
+  <div class="content">
+    <h4 class="header"> <%= contact.contact_name %> </h4>
+      <i class:"mobile icon"></i> 
+      <%= display_phone(contact.contact_phone) %>
+    </div>
+  <div class="ui two bottom attached small buttons">
+    	<%= link_to edit_users_contacts_path(contact), class: "ui grey basic vertical animated button" do %>
+    	<div class="visible content"> <i class="pencil icon"></i> </div>
+    	<div class="hidden content"> Edit </div>
+    	<% end %>
+
+    	<%= link_to users_contacts_path, method: :delete, data: { confirm: "Are you sure?"}, class: "ui red basic vertical animated button" do %>
+    	<div class="visible content"> <i class="trash icon"></i> </div>
+    	<div class="hidden content"> Delete </div>
+    	<% end %> 
+    </div>
+  </div>
+
