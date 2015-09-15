@@ -1,5 +1,15 @@
 Rails.application.routes.draw do
 
+  get 'events/new'
+
+  get 'events/create'
+
+  get 'events/show'
+
+  get 'events/delete'
+
+  get 'events/destroy'
+
   # Routes with customizations
 
   get 'main/options', path: '/options', as:'options'
