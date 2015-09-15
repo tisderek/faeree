@@ -11,11 +11,18 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-
-ActiveRecord::Schema.define(version: 20150819044333) do
+ActiveRecord::Schema.define(version: 20150915194450) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
+
+  create_table "contacts", force: :cascade do |t|
+    t.string   "contact_name",  null: false
+    t.string   "contact_phone", null: false
+    t.integer  "user_id",       null: false
+    t.datetime "created_at",    null: false
+    t.datetime "updated_at",    null: false
+  end
 
   create_table "events", force: :cascade do |t|
     t.float    "lat"
@@ -24,11 +31,6 @@ ActiveRecord::Schema.define(version: 20150819044333) do
     t.integer  "street_number"
     t.datetime "next_sweep"
     t.integer  "user_id"
-
-  create_table "contacts", force: :cascade do |t|
-    t.string   "contact_name",  null: false
-    t.string   "contact_phone", null: false
-    t.integer  "user_id",       null: false
     t.datetime "created_at",    null: false
     t.datetime "updated_at",    null: false
   end

@@ -34,7 +34,7 @@ RGeo::Shapefile::Reader.open(itineraries_seed_file) do |file|
       args[:weekday] = "Saturday"
     end
     Itinerary.create(args)
-    break if record.index == 300
+    break if record.index == 2000
   end
   file.rewind
   record = file.next

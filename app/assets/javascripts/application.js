@@ -78,7 +78,7 @@ $(document).ready(function() {
 
   //RAILS moved from btm of options page to here, still doesn't work
   // accordion
-  $('.ui.accordion').accordion()
+  // $('.ui.accordion').accordion()
 
 
 //NAV

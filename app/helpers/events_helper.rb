@@ -1,4 +1,4 @@
-module NotificationHelper
+module EventsHelper
   def send_sms(to_number, body_text)
 
     twilio_SID = 'AC353193f53993d0d25fde1832142cb278'
@@ -12,20 +12,14 @@ module NotificationHelper
       body: body_text
       )
   end
-
-  get '/parked/:id/text' do
-    @parked = ParkingEvent.find(params[:id])
-    user.send_sms(
-        "faeree: Make sure to move your vehicle before #{@parked.get_route.strftime("%A at %-l:%M%P")}"
-      )
-  end
-
+  
   def format_datetime(datetime)
     datetime.getlocal.strftime(
       "%A, %b #{datetime.day.ordinalize} at %l:%M%P"
       )
   end
 end
+
 
 module DateTimeHelper
 
