@@ -11,10 +11,19 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
+
 ActiveRecord::Schema.define(version: 20150819044333) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
+
+  create_table "events", force: :cascade do |t|
+    t.float    "lat"
+    t.float    "lng"
+    t.string   "street_name"
+    t.integer  "street_number"
+    t.datetime "next_sweep"
+    t.integer  "user_id"
 
   create_table "contacts", force: :cascade do |t|
     t.string   "contact_name",  null: false
@@ -22,6 +31,26 @@ ActiveRecord::Schema.define(version: 20150819044333) do
     t.integer  "user_id",       null: false
     t.datetime "created_at",    null: false
     t.datetime "updated_at",    null: false
+  end
+
+  create_table "itineraries", force: :cascade do |t|
+    t.string   "cnnrightle"
+    t.time     "fromhour"
+    t.time     "tohour"
+    t.string   "weekday"
+    t.string   "streetname"
+    t.integer  "lf_fadd"
+    t.integer  "lf_toadd"
+    t.integer  "rt_fadd"
+    t.integer  "rt_toadd"
+    t.boolean  "week1ofmon"
+    t.boolean  "week2ofmon"
+    t.boolean  "week3ofmon"
+    t.boolean  "week4ofmon"
+    t.boolean  "week5ofmon"
+    t.boolean  "holidays"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
   end
 
   create_table "users", force: :cascade do |t|

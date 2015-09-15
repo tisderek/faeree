@@ -8,10 +8,11 @@ class User < ActiveRecord::Base
 	validates :phone, presence:true, uniqueness: true, numericality: true, length: { is: 10 }
 	validates :email, presence:true, uniqueness: true, format: EMAIL_REGEX
 
-	# has_many  :parking_events
+	has_many  :events
   has_many  :contacts
 
-  #RF make private
+  private 
+  
   def generate_token
     new_token = SecureRandom.hex
     self.update_attribute(:token, new_token)
