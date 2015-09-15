@@ -1,4 +1,6 @@
 class UsersController < ApplicationController
+  include MainHelper
+
   def show
   end
 
@@ -7,8 +9,9 @@ class UsersController < ApplicationController
   end
 
   def edit
-    @user = User.find(params[:id])
+    
   end
+
 
   def create
     @user = User.new(user_params)
@@ -20,6 +23,11 @@ class UsersController < ApplicationController
   end
 
   def update
+    if user.update(user_params)
+      redirect_to options_path
+    else
+      render 'edit'
+    end
   end
 
   def destroy
@@ -28,6 +36,7 @@ class UsersController < ApplicationController
   private
 
   def user_params
-    params.require(:user).permit(:name,:phone_number,:email,:password)
+    params.require(:user).permit(:name,:phone,:email,:password)
   end
+
 end

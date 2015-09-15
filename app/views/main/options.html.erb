@@ -4,38 +4,65 @@
 
 		<div class="ui padded basic vertical segment">
 
-			<%# if user.contacts.count == 0 %>
-				<div class="ui text container" id="add-contact-container" >
-					<h2 class="ui header">
-						<i class="users icon"></i>
-						Add a contact
-					</h2>
-					<div class="ui content">
+			<% if user.contacts.count == 0 %>
+			<div class="ui text container" id="add-contact-container" >
+				<h2 class="ui header">
+					<i class="users icon"></i>
+					Add a contact
+				</h2>
+				<div class="ui content">
 					If you share your vehicle, Faeree can send personalized text messages to keep them in the loop.
+				</div>
+			</div>
+			<div id="content-col add-contact-wrapper" class="ui padded segment">
+				<%= link_to new_users_contacts_path, class: "ui large labeled icon button" do %>
+				<i class="add user icon"></i>
+				Add Contact
+				<% end %>
+				<%#= erb :"contacts/_new", layout: false %>
+				<%#= render "contacts/new", layout: false %>
+
+			</div>
+			<% else %>
+			<div class="ui container" id="user-contacts-container" >
+				<h2 class="ui header">
+					<i class="users icon"></i>
+					Contacts
+				</h2>
+				<div class="ui content">
+					If you share your vehicle, Faeree can send personalized text messages to keep them in the loop.
+				</div>
+				<div class="ui basic vertical segment">
+					<div class="ui doubling three cards">
+						<%= render user.contacts %>
 					</div>
 				</div>
-				<div id="content-col add-contact-wrapper" class="ui padded segment">
-					 <%#= erb :"contacts/_new", layout: false %>
-					<%#= render "contacts/new", layout: false %>
+				<div class="ui basic vertical segment">
+					<%= link_to new_users_contacts_path, class: "ui large labeled icon button" do %>
+					<i class="add user icon"></i>
+					Add Contact
+					<% end %>
+				</div>					
+			</div>
+			<% end %>
+		</div>
+		<div class="ui padded basic vertical segment">
+			<div class="ui container" id="user-show-container" >
+				<h2 class="ui header">
+					<i class="smile icon"></i>
+					Account
+				</h2>
 
-				</div>
-			<%# else %>
-				<div class="ui text container" id="user-contacts-container" >
-					<h2 class="ui header">
-						<i class="users icon"></i>
-						Contacts
-					</h2>
-					If you share your vehicle, Faeree can send personalized text messages to keep them in the loop.
-				</div>
-				<div id="content-col" class="ui basic segment">
-					<%#= render "contacts/index", layout: false %>
-					<%#= erb :"contacts/_index", layout: false %>
-				</div>
-			<%# end %>
+				<div id="acct-options" class="ui content" >
 
-			<div class="ui padded vertical segment ">
-				<div id="acct-options">
-					<%= render "users/show", layout: false %>
+					<%= render partial: "users/show" %>
+
+					<%=  link_to upgrade_path, {class: "ui blue button"} do %>
+					<i class="icon rocket"></i>
+					Upgrade
+					<% end %> 
+
+					<%=  link_to 'Edit', edit_users_path, class: "ui basic grey button"  %>
 				</div>
 			</div>
 		</div>

@@ -1,0 +1,64 @@
+<!-- <div id="contact-new" >
+	<h2 class="ui header">
+		 <i class="add user icon"></i>
+		New Contact
+	</h2>
+	<br>
+	<%#= render 'form' %>
+	
+</div> -->
+
+
+<div id="contact-new" >
+	<h2 class="ui header">
+		 <i class="add user icon"></i>
+		New Contact
+	</h2>
+	<br>
+	<%= form_for :user_contact, url: users_contacts_path, method:"POST",  html: {class: "ui large fluid form"}  do |f| %>
+
+			<div class="inline field">
+			 	<%= f.label :contact_name do %>
+					<i class="user icon"></i> Name:
+				<% end %>
+			 	<%= f.text_field :contact_name %>
+			</div>
+
+			<div class="inline field">
+			 	<%= f.label :contact_phone do %>
+					<i class="mobile icon"></i> Phone number:
+				<% end %>
+			 	<%= f.telephone_field :contact_phone %>
+			</div>
+	 
+		<div class="inline field">
+			<%= f.submit class: "ui green button" %>
+		</div>
+
+	 <% end %>	
+
+		<% if @contact.errors.any? %>
+			<div id="error_explanation">
+				<h4>
+					<%= pluralize(@contact.errors.count, "error") %> prevented your contact from being saved:
+				</h4>
+				<ul>
+					<% @contact.errors.full_messages.each do |msg| %>
+					<div class="ui error small icon message left aligned "> 
+						<i class="warning icon"> </i>
+						<div class="left aligned content">
+							<p><%= msg %></p>  
+						</div>
+					</div>
+					<% end %>
+				</ul>
+			</div>
+		<% end %>
+	 
+	 <%= link_to options_path do %>
+		<i class="arrow left icon"></i>
+		Back
+	 <% end %> 
+
+	
+</div>

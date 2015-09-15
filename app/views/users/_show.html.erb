@@ -1,8 +1,3 @@
-<div id="user-show" >
-  <h2 class="ui header">
-    <i class="smile icon"></i>
-    Account
-  </h2>
   <div class="ui large very relaxed list">
     <div class="item">
       <i class="user icon"></i>
@@ -13,7 +8,7 @@
     <div class="item">
       <i class="mobile icon"></i>
       <div class="content">
-        Phone number: <b><%= display_phone(user.phone_number) %></b>
+        Phone number: <b><%= display_phone(user.phone) %></b>
       </div>
     </div>
     <div class="item">
@@ -47,9 +42,5 @@
       </div>
     </div>
   </div>
-  <%=  link_to upgrade_path, {class: "ui blue button"} do %>
-    <i class="icon rocket"></i>
-    Upgrade
-  <% end %>   
-  <%=  link_to 'Edit', edit_users_path, class: "ui basic grey button"  %>
+  
 </div>

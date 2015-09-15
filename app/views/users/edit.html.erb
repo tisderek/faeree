@@ -1,2 +1,61 @@
-<h1>Users#edit</h1>
-<p>Find me in app/views/users/edit.html.erb</p>
+<div id="user-edit" >
+	<h2 class="ui header">
+		 <i class="pencil icon"></i>
+		Edit Account
+	</h2>
+	<br>
+<%= form_for :user, url: users_path(:user), method:"PUT", html: {class: "ui large fluid form", id:"acct-edit-form"} do |f| %>
+	<% if user.errors.any? %>
+		<div id="error_explanation">
+			<h3>
+				<%= pluralize(user.errors.count, "error") %> prohibited your profile from being saved:
+			</h3>
+			<ul>
+				<% user.errors.full_messages.each do |msg| %>
+					<li>
+						<%= msg %>
+					</li>
+				<% end %>
+			</ul>
+		</div>
+	<% end %>
+
+		<div class="inline field">
+		 	<%= f.label :name do %><br>
+				<i class="user icon"></i> Name:
+			<% end %>
+		 	<%= f.text_field :name %><br>
+		</div>
+
+		<div class="inline field">
+		 	<%= f.label :email do %><br>
+				<i class="at icon"></i> Email:
+			<% end %>
+		 	<%= f.text_field :email %><br>
+		</div>
+
+		<div class="inline field">
+		 	<%= f.label :phone do %><br>
+				<i class="mobile icon"></i> Phone number:
+			<% end %>
+		 	<%= f.telephone_field :phone %><br>
+		</div>
+
+  <p>
+  <!-- RF RAILS CHANGE WHEN LOGIN -->
+ 	<%#= f.label :password %><br>
+ 	<%#= f.text_field :password %><br>
+ </p>	
+ 
+	<div class="inline field">
+		<%= f.submit "Update", class: "ui green button", id: "edit-submit-btn" %>
+	</div>
+
+ <% end %>	
+ 
+ <%= link_to options_path do %>
+	<i class="arrow left icon"></i>
+	Back
+ <% end %> 
+
+</div>

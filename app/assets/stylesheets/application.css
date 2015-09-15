@@ -14,3 +14,56 @@
  *= require_self
  *= require semantic_ui/semantic_ui
  */
+
+#map {
+  position:absolute;
+  top:93px;
+  bottom:0px;
+  width:100%;
+}
+
+
+#footer-img{
+  position:fixed;
+  margin-top:80%;
+  clear:both;
+  bottom:0;
+  left:0;
+  z-index: -1;
+}
+
+#splash-col{
+  opacity: .97;
+  max-width: 400px;
+}
+
+#park-col{
+  max-width: 700px;
+}
+
+#content-col{
+  max-width: 400px;
+}
+
+#navbar{
+  /*background-color: #FAFAFA;*/
+  z-index:99;
+}
+
+#grab-location-park-btns, #parking-form {
+  z-index:99;
+  margin-top: 75%;
+}
+
+#pusher{
+  background-color: #ffffff; 
+  background-image: url(http://www.transparenttextures.com/patterns/absurdity.png);
+}
+/*
+#parking-form {
+  display: none;
+}*/
+
+#add-contact-wrapper {
+  background-color: #2ecc71;
+}
