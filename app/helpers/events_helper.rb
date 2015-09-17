@@ -1,4 +1,5 @@
 module EventsHelper
+  
   def send_sms(to_number, body_text)
 
     twilio_SID = 'AC353193f53993d0d25fde1832142cb278'
@@ -14,9 +15,13 @@ module EventsHelper
   end
   
   def format_datetime(datetime)
-    datetime.getlocal.strftime(
+    datetime.strftime(
       "%A, %b #{datetime.day.ordinalize} at %l:%M%P"
       )
+  end
+
+  def countdown_to(datetime)
+    TimeDifference.between(datetime, Time.now).in_general
   end
 
 end

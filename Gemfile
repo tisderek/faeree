@@ -63,6 +63,7 @@ gem 'rgeo'
 gem 'rgeo-shapefile'
 gem 'twilio-ruby'
 gem 'dotenv'
+gem 'time_difference'
 
 group :test do
   gem 'simplecov', :require => false

@@ -1,6 +1,5 @@
 <div id="parked-body">
   <div class="ui container">
-  <h2> You parked</h2>
   <br>
   <div class="ui two column stackable grid centered container">
     <div class="column">
@@ -13,7 +12,7 @@
         <div class="content">
           <div class="description">
             <h3>
-              <%= @event.get_route.strftime('%A at %-l:%M%P') %>
+              <%= format_datetime(@event.get_route) %>
             </h3>
           </div>
         </div>
@@ -23,10 +22,10 @@
           <div class="ui top left attached label">
             Countdown
           </div>
-          <div class="ui three mini grey statistics">
+          <div class="ui three mini statistics">
             <div class=" statistic">
               <div class="value">
-                2
+                <%= countdown_to(@event.get_route)[:days] %>
               </div>
               <div class="label">
                 days
@@ -34,7 +33,7 @@
             </div>
             <div class="statistic">
               <div class="value">
-                4
+                <%= countdown_to(@event.get_route)[:hours] %>
               </div>
               <div class="label">
                 hours
@@ -42,7 +41,7 @@
             </div>
             <div class="statistic">
               <div class="value">
-                22
+                <%= countdown_to(@event.get_route)[:minutes] %>
               </div>
               <div class="label">
                 minutes
@@ -55,17 +54,17 @@
             <div class="ui top left attached label">
               Text Notifications
             </div>
-            <div class="ui toggle disabled checkbox">
+            <div class="ui toggle checkbox">
               <input type="checkbox" name="time-based-alert" checked>
               <label> 1h before street sweeping </label>
               <br>
             </div>
-            <div class="ui toggle disabled checkbox">
+            <div class="ui toggle checkbox">
               <input type="checkbox" name="day-of-alert" checked>
               <label> At 8am on the day of </label>
               <br>
             </div>
-            <div class="ui toggle disabled checkbox">
+            <div class="ui toggle checkbox">
               <input type="checkbox" name="preceeding-day-alert">
               <label> At 8pm on the day before </label>
             </div>
@@ -102,7 +101,7 @@
         <div class="extra content">
           <a>
             <i class="wait icon"></i>
-            <%= format_datetime(@event.created_at) %>
+            <%= format_datetime(@event.created_at.in_time_zone("Pacific Time (US & Canada)")) %>
           </a>
         </div>
       </div>
