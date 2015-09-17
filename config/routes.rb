@@ -1,29 +1,16 @@
 Rails.application.routes.draw do
 
-  get 'events/new'
+  # Custom paths 
 
-  get 'events/create'
+  get  'main/options',    path: '/options',   as:'options'
+  get  'main/upgrade',    path: '/upgrade',   as:'upgrade'
+  get  'main/dashboard',                      as:'dashboard'
+  # get  'event/new',       path: '/park'
 
-  get 'events/show'
+  resources :events
 
-  get 'events/delete'
-
-  get 'events/destroy'
-
-  # Routes with customizations
-
-  get 'main/options',   path: '/options',   as:'options'
-  get 'main/upgrade',   path: '/upgrade',   as:'upgrade'
-  get 'main/dashboard',                     as:'dashboard'
-
-  # scope '/users' do
-  #   resources :contact
-  # end  
-
-
-  resource :users, only: [:show, :edit, :create, :update, :destroy] do
-      resource :contacts
-      # resource :events
+  resources :users, only: [:show, :edit, :create, :update, :destroy] do 
+      resources :contacts
   end
   resource :session, only: [:create, :destroy]
 

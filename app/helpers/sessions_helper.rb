@@ -1,4 +1,4 @@
-module SessionHelper 
+module SessionsHelper 
 
   def logged_in?
     !!cookies[:token] && user
@@ -21,21 +21,14 @@ module SessionHelper
     end
   end
 
-  def signup
-    #RF BCrypt version
-    # @user = User.new(
-    #   name: params[:name],
-    #   phone_number: just_nums(params[:phone_number]),
-    #   email: params[:email]
-    #   )
-    # @user.password = params[:password]
-    @user = User.new(
-      name: params[:name],
-      phone_number: just_nums(params[:phone_number]),
-      email: params[:email]
-      )
-    @user.password = params[:password]
-  end
+  # def signup
+  #    @user = User.new(
+  #     name: params[:name],
+  #     phone_number: just_nums(params[:phone_number]),
+  #     email: params[:email]
+  #     )
+  #   @user.password = params[:password]
+  # end
 
   def cookies_error
     {

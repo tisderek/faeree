@@ -1,30 +1,28 @@
 class EventsController < ApplicationController
+  include SessionsHelper
+  include EventsHelper
+
+  Geokit::Geocoders::GoogleGeocoder.api_key = 'AIzaSyB-4WojvjIigSwVn04P-0zv3I233tDKfPA'
+
   def new
     @event = Event.new
   end
 
   def create
     @event = Event.new(event_params)
-
-    respond_to do |format|
+    @event.user_id = user.id
       if @event.save
-        format.html { redirect_to @event, notice: 'User was successfully created.' }
-        format.json { render :show, status: :created, location: @event }
+        redirect_to event_path(@event.id)
+        #'user/#{user.id}/events/#{@event.id}'
       else
-        format.html { render :new }
-        format.json { render json: @event.errors, status: :unprocessable_entity }
+        redirect_to 'dashboard'
       end
-    end
   end
 
   def show
     @event = Event.find(params[:id])
-    if @event.get_route == nil
-      # erb :"parking_events/404", locals: { header: "Whoops" }
-    else
-      # erb :"parking_events/show", locals: { parked: @event,  header: "Here's the 411" }
-      render 'show'
-    end
+
+    render 'show'
   end
 
   def delete
@@ -39,4 +37,14 @@ class EventsController < ApplicationController
         "faeree: Make sure to move your vehicle before #{@event.get_route.strftime("%A at %-l:%M%P")}"
       )
   end
+
+  private
+
+    def set_event
+      @event = User.find(params[:id])
+    end
+
+    def event_params
+      params.require(:event).permit(:lat, :lng)
+    end
 end

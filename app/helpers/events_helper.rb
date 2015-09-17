@@ -1,4 +1,5 @@
-module NotificationHelper
+module EventsHelper
+  
   def send_sms(to_number, body_text)
 
     twilio_SID = 'AC353193f53993d0d25fde1832142cb278'
@@ -12,32 +13,20 @@ module NotificationHelper
       body: body_text
       )
   end
-
-  get '/parked/:id/text' do
-    @parked = ParkingEvent.find(params[:id])
-    user.send_sms(
-        "faeree: Make sure to move your vehicle before #{@parked.get_route.strftime("%A at %-l:%M%P")}"
-      )
-  end
-
+  
   def format_datetime(datetime)
-    datetime.getlocal.strftime(
+    datetime.strftime(
       "%A, %b #{datetime.day.ordinalize} at %l:%M%P"
       )
   end
-end
 
-module DateTimeHelper
-
-  def next_week
-    self + (7 - self.wday)
-  end
-
-  def next_wday(n)
-    n > self.wday ? self + (n - self.wday) : self.next_week.next_day(n)
+  def countdown_to(datetime)
+    TimeDifference.between(datetime, Time.now).in_general
   end
 
 end
+
+
 
 class Fixnum
   def ordinalize

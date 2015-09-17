@@ -17,7 +17,7 @@
 
 #map {
   position:absolute;
-  top:93px;
+  top:112px;
   bottom:0px;
   width:100%;
 }
@@ -46,13 +46,15 @@
 }
 
 #navbar{
-  /*background-color: #FAFAFA;*/
   z-index:99;
 }
 
-#grab-location-park-btns, #parking-form {
-  z-index:99;
-  margin-top: 75%;
+#submit-location-btn {
+  z-index:98;
+  position: absolute;
+  bottom: 100px;
+  margin: auto auto ;
+  margin-left: -6em;
 }
 
 #pusher{

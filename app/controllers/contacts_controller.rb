@@ -1,5 +1,6 @@
 class ContactsController < ApplicationController
   include MainHelper
+  include ApplicationHelper
 
   def index
     user_contacts = user.contacts

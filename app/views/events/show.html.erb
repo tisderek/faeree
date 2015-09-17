@@ -1,2 +1,112 @@
-<h1>Events#show</h1>
-<p>Find me in app/views/events/show.html.erb</p>
+<div id="parked-body">
+  <div class="ui container">
+  <br>
+  <div class="ui two column stackable grid centered container">
+    <div class="column">
+      <div class="ui centralized card">
+        <div class="content">
+          <div class="header">
+            Next Street Cleaning
+          </div>
+        </div>
+        <div class="content">
+          <div class="description">
+            <h3>
+              <%= format_datetime(@event.get_route) %>
+            </h3>
+          </div>
+        </div>
+        <div class="ui vertical segment">
+        </div>
+        <div class="ui vertical segment">
+          <div class="ui top left attached label">
+            Countdown
+          </div>
+          <div class="ui three mini statistics">
+            <div class=" statistic">
+              <div class="value">
+                <%= countdown_to(@event.get_route)[:days] %>
+              </div>
+              <div class="label">
+                days
+              </div>
+            </div>
+            <div class="statistic">
+              <div class="value">
+                <%= countdown_to(@event.get_route)[:hours] %>
+              </div>
+              <div class="label">
+                hours
+              </div>
+            </div>
+            <div class="statistic">
+              <div class="value">
+                <%= countdown_to(@event.get_route)[:minutes] %>
+              </div>
+              <div class="label">
+                minutes
+              </div>
+            </div>
+          </div>
+        </div>
+        <div id="text-toggle-buttons" class="ui vertical segment">
+          <div style="margin-left: 1.5em!important" class="content">
+            <div class="ui top left attached label">
+              Text Notifications
+            </div>
+            <div class="ui toggle checkbox">
+              <input type="checkbox" name="time-based-alert" checked>
+              <label> 1h before street sweeping </label>
+              <br>
+            </div>
+            <div class="ui toggle checkbox">
+              <input type="checkbox" name="day-of-alert" checked>
+              <label> At 8am on the day of </label>
+              <br>
+            </div>
+            <div class="ui toggle checkbox">
+              <input type="checkbox" name="preceeding-day-alert">
+              <label> At 8pm on the day before </label>
+            </div>
+          </div>
+        </div>
+        <div class="ui two bottom attached buttons">
+          <a href="/parked/<%= @event.id %>/text" id="send_sms" class="ui basic blue button" >
+            <i class="send icon"></i>
+            Send text
+          </a>
+          <div class="ui basic red button">
+            <i class="trash icon"></i>
+            Delete
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="column">
+
+      <div class="ui orange card">
+        <div class="content">
+          <div class="header"> Location </div>
+        </div>
+        <div class="image">
+          <img src="https://api.tiles.mapbox.com/v4/mapbox.emerald/pin-l-car+f2711c(<%= @event.lng %>,<%= @event.lat%>,1)/<%= @event.lng %>,<%= @event.lat%>,18/290x290.png?access_token=pk.eyJ1IjoidGlzZGVyZWsiLCJhIjoiZjkyNGM0NzNmMmJkZDcwNDY1ZTFjZjdmMjg5ZjVjYjcifQ.L45m9mxolxtTCizyjYLzGA">
+        </div>
+        <div class="content">
+          <span>
+            <i class="marker icon"></i>
+            <%= @event.street_number  %> <%= @event.street_name  %>
+          </span>
+        </div>
+        <div class="extra content">
+          <a>
+            <i class="wait icon"></i>
+            <%= format_datetime(@event.created_at.in_time_zone("Pacific Time (US & Canada)")) %>
+          </a>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</div>
+</div>
