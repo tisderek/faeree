@@ -32,21 +32,13 @@ gem 'sdoc', '~> 0.4.0', group: :doc
 # Use Capistrano for deployment
 # gem 'capistrano-rails', group: :development
 
-group :development, :test do
-  # Call 'byebug' anywhere in the code to stop execution and get a debugger console
-  gem 'byebug'
-  gem 'dotenv-rails'
-
-  # Access an IRB console on exception pages or by using <%= console %> in views
-  gem 'web-console', '~> 2.0'
-  gem 'pry-rails'
-  gem 'pry-nav'
-
-  # better errors
-	gem 'better_errors'
-	gem "binding_of_caller"
-
-end
+# OAUTH
+gem 'therubyracer'
+gem 'devise'
+gem 'omniauth'
+gem 'omniauth-twitter'
+gem 'omniauth-google'
+gem 'omniauth-github'
 
 # For Heroku deployment
 gem 'rails_12factor', group: :production
@@ -64,6 +56,23 @@ gem 'rgeo-shapefile'
 gem 'twilio-ruby'
 gem 'dotenv'
 gem 'time_difference'
+
+group :development, :test do
+  # Call 'byebug' anywhere in the code to stop execution and get a debugger console
+  gem 'byebug'
+  gem 'dotenv-rails'
+
+  # Access an IRB console on exception pages or by using <%= console %> in views
+  gem 'web-console', '~> 2.0'
+  gem 'pry-rails'
+  gem 'pry-nav'
+
+  # better errors
+  gem 'better_errors'
+  gem "binding_of_caller"
+
+end
+
 
 group :test do
   gem 'simplecov', :require => false

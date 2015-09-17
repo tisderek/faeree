@@ -64,7 +64,8 @@ class Itinerary < ActiveRecord::Base
       d.year, d.month, d.day, t.hour, t.min, t.sec, '-8'
       )
   end
-
+  
+  # refactor into a concern
   def parked_num_and_lowest_match?(parked)
     self.get_lowest_street_number.even? == parked.street_number.even?
   end
