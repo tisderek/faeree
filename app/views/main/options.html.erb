@@ -15,7 +15,7 @@
 				</div>
 			</div>
 			<div id="content-col add-contact-wrapper" class="ui padded segment">
-				<%= link_to new_users_contacts_path, class: "ui large labeled icon button" do %>
+				<%= link_to new_user_contact_path(user.id), class: "ui large labeled icon button" do %>
 				<i class="add user icon"></i>
 				Add Contact
 				<% end %>
@@ -38,7 +38,7 @@
 					</div>
 				</div>
 				<div class="ui basic vertical segment">
-					<%= link_to new_users_contacts_path, class: "ui large labeled icon button" do %>
+					<%= link_to new_user_contact_path(user.id), class: "ui large labeled icon button" do %>
 					<i class="add user icon"></i>
 					Add Contact
 					<% end %>
@@ -62,7 +62,7 @@
 					Upgrade
 					<% end %> 
 
-					<%=  link_to 'Edit', edit_users_path, class: "ui basic grey button"  %>
+					<%=  link_to 'Edit', edit_user_path(user.id), class: "ui basic grey button"  %>
 				</div>
 			</div>
 		</div>

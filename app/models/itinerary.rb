@@ -1,7 +1,5 @@
 class Itinerary < ActiveRecord::Base
 
-  before_create :format_st_names, :format_weekdays
-
   LONG_FORM_WEEKDAYS = {
     "Sun" => "Sunday",
     "Mon" => "Monday",
@@ -13,47 +11,44 @@ class Itinerary < ActiveRecord::Base
   }
 
   LONG_FORM_ADDRESSES = {
-    "St" => "Street",
-    "Ave" => "Avenue",
-    "Dr" => "Drive",
-    "Blvd" => "Boulevard",
-    "Rd" => "Road",
-    "Ct" => "Court",
-    "Ter" => "Terrace",
-    "Aly" => "Alley",
-    "Pl" => "Place"
+    "ST" => "Street",
+    "AVE" => "Avenue",
+    "DR" => "Drive",
+    "BLVD" => "Boulevard",
+    "RD" => "Road",
+    "CT" => "Court",
+    "TER" => "Terrace",
+    "ALY" => "Alley",
+    "PL" => "Place"
   }
 
-  def format_weekdays
-    self.weekday = LONG_FORM_WEEKDAYS[self.weekday]
+  before_create :replace_abbreviated_address, :replace_abbreviated_weekday
+
+  # before_create callbacks
+
+  def replace_abbreviated_address
+    name_array = self.streetname.split(" ")
+    # inde_of_type = name_array.find_index()
+    name_array << LONG_FORM_ADDRESSES[name_array[-1]]
+    name_array.delete_at(-2)
+    self.streetname = name_array.join(" ")
+    # delete below after making format_address
+    self.streetname = self.streetname.titlecase
   end
 
-  def format_st_names
-    self.streetname = self.streetname.titlecase
-    if self.streetname.split(" ")[1] == "St"
-      self.streetname = self.streetname.gsub("St", "Street")
-    elsif self.streetname.split(" ")[1] == "Ave"
-      self.streetname = self.streetname.gsub("Ave", "Avenue")
-    elsif self.streetname.split(" ")[1] == "Dr"
-      self.streetname = self.streetname.gsub("Dr", "Drive")
-    elsif self.streetname.split(" ")[1] == "Blvd"
-      self.streetname = self.streetname.gsub("Blvd", "Boulevard")
-    elsif self.streetname.split(" ")[1] == "Rd"
-      self.streetname = self.streetname.gsub("Rd", "Road")
-      self.streetname = self.streetname.sub("Road", "rd")
-    elsif self.streetname.split(" ")[1] == "Ct"
-      self.streetname = self.streetname.gsub("Ct", "Court")
-    elsif self.streetname.split(" ")[1] == "Ter"
-      self.streetname = self.streetname.gsub("Ter", "Terrace")
-    elsif self.streetname.split(" ")[1] == "Aly"
-      self.streetname = self.streetname.gsub("Aly", "Alley")
-    end
+  # def format_address
+  #   address = self.streetname
+  #   if address.first.is_a? Integer
+  #     address_array = adress.split(" ")
 
-    if self.streetname.split("")[0] = "0"
-      self.streetname = self.streetname.sub("0","")
-      self.streetname = self.streetname.sub(" ","")
-    end
+  #   else
+  #     self.streetname = address.titlecase
 
+  #   end
+  # end
+
+  def replace_abbreviated_weekday
+    self.weekday = LONG_FORM_WEEKDAYS[self.weekday]
   end
   
   def date_of_next(day)

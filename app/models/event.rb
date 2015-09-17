@@ -20,7 +20,7 @@ class Event < ActiveRecord::Base
   end
 
   def routes_by_street
-    Route.where(streetname: self.street_name)
+    Itinerary.where(streetname: self.street_name)
   end
 
   def ceiling_filter

@@ -17,7 +17,7 @@
 
 #map {
   position:absolute;
-  top:108px;
+  top:112px;
   bottom:0px;
   width:100%;
 }
@@ -49,12 +49,12 @@
   z-index:99;
 }
 
-#submit-btn {
+#submit-location-btn {
   z-index:98;
   position: absolute;
   bottom: 100px;
-  margin-left: auto;
-  margin-right: auto;
+  margin: auto auto ;
+  margin-left: -6em;
 }
 
 #pusher{

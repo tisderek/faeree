@@ -29,19 +29,14 @@ $(document).ready(function() {
     $('#navbar').next().removeClass('ui container')
   }
 
-  // show park button after findme button is clicked
-  $("#geolocate-park-btn, #pindrop-park-btn").on('click', function(){
-    $("#grab-location-park-btns").remove()
-    // $('#parking-form').delay(6v00).fadeIn('slow');
-    });
   // fill hidden forms w lat&lng when park btn is clicked
-  $('#submit-location-park-btn').on('click', function(){
+  $('#submit-location-btn').on('click', function(){
 
     var lat = myLayer._geojson.geometry.valueOf().coordinates[1];
     var lng = myLayer._geojson.geometry.valueOf().coordinates[0];
 
-    $('#lat').attr('value', lat);
-    $('#lng').attr('value', lng);
+    $('#event_lat').attr('value', lat);
+    $('#event_lng').attr('value', lng);
   })
 
 //PARKED

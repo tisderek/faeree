@@ -7,6 +7,18 @@ User.create(
     password: 123123
 )
 
+Event.create(
+  lat: 37.769185,
+  lng: -122.430613,
+  user_id: 1
+)
+
+Event.create(
+  lat: 37.769618,
+  lng: -122.430886,
+  user_id: 1
+)
+
 itineraries_seed_file = File.join(Rails.root, 'db', 'itineraries_seed', 'itineraries_seed.shp')
 RGeo::Shapefile::Reader.open(itineraries_seed_file) do |file|
   file.each do |record|
@@ -18,23 +30,8 @@ RGeo::Shapefile::Reader.open(itineraries_seed_file) do |file|
     args.delete(:district)
     args.delete(:nhood)
     args.delete(:zip_code)
-    if args[:weekday] == "Sun"
-      args[:weekday] = "Sunday"
-    elsif args[:weekday] == "Mon"
-      args[:weekday] = "Monday"
-    elsif args[:weekday] == "Tue"
-      args[:weekday] = "Tuesday"
-    elsif args[:weekday] == "Wed"
-      args[:weekday] = "Wednesday"
-    elsif args[:weekday] == "Thu"
-      args[:weekday] = "Thursday"
-    elsif args[:weekday] == "Fri"
-      args[:weekday] = "Friday"
-    elsif args[:weekday] == "Sat"
-      args[:weekday] = "Saturday"
-    end
     Itinerary.create(args)
-    break if record.index == 2000
+    # break if record.index == 3000
   end
   file.rewind
   record = file.next

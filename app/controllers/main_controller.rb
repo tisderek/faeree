@@ -9,6 +9,7 @@ class MainController < ApplicationController
   end
 
 	def home
+    @user = User.first
 		if logged_in?
 			render 'dashboard'
 		else

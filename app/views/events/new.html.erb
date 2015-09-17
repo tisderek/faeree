@@ -4,14 +4,13 @@
 
   <div class="ui middle aligned centered fluid page grid">
   <div class="colum">
-    <%= form_for :events, url: events_path, method:"POST",  html: {id: "parking-form"}  do |f| %>
+    <%= form_for @event, url: events_path, method:"POST"  do |f| %>
       <%= f.hidden_field :lng  %>
       <%= f.hidden_field :lat  %>
-      <%= f.submit "Yep, I'm parked here", class: "massive ui blue button", id:"submit-btn" %>
+      <%= f.submit "Yep, I'm parked here", class: "massive ui blue button", id:"submit-location-btn" %>
     <% end %>  
     </div>
   </div>
-  <!-- </div> -->
 </div>
 <!-- mapbox -->
   <link rel='stylesheet' href='https://api.tiles.mapbox.com/mapbox.js/v2.2.1/mapbox.css'/>
@@ -21,19 +20,25 @@
   <script>
   L.mapbox.accessToken = 'pk.eyJ1IjoidGlzZGVyZWsiLCJhIjoiZjkyNGM0NzNmMmJkZDcwNDY1ZTFjZjdmMjg5ZjVjYjcifQ.L45m9mxolxtTCizyjYLzGA';
   var geolocate = document.getElementById('geolocate-park-btn');
-  var park = document.getElementById('parking-form')
   var map = L.mapbox.map('map', 'mapbox.emerald', {
     center: [37.7833, -122.4167],
     zoom: 10
   });
 
   var myLayer = L.mapbox.featureLayer().addTo(map);
+
+    // This uses the HTML5 geolocation API
+    // if (!navigator.geolocation) {
+    //   geolocate.innerHTML = 'Geolocation is not available';
+    // } else {
+    //     map.locate();
+    //   };
+    // }
     
     map.locate();
     // Once we've got a position, zoom and center the map
     // on it, and add a single marker.
     map.on('locationfound', function(e) {
-      park.style.display = 'block'
       map.fitBounds(e.bounds);
       // console.log(e.bounds);
       myLayer.setGeoJSON({
@@ -49,7 +54,16 @@
         }
       });
 
-    });
+        // And hide the geolocation button
+        geolocate.parentNode.removeChild(geolocate);
+      });
 
-    ;
-</script>
+    // If the user chooses not to allow their location
+    // to be shared, display an error message.
+    map.on('locationerror', function() {
+      geolocate.innerHTML = 'Position could not be found';
+    });
+  </script>
+
+
+

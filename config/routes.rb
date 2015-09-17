@@ -4,13 +4,13 @@ Rails.application.routes.draw do
 
   get  'main/options',    path: '/options',   as:'options'
   get  'main/upgrade',    path: '/upgrade',   as:'upgrade'
-  get  'main/dashboard',                     as:'dashboard'
-  get  'events/new',      path: '/park'
+  get  'main/dashboard',                      as:'dashboard'
+  # get  'event/new',       path: '/park'
 
-  resource :events, only: [:show, :new, :delete, :destroy, :create ]
-  resource :users, only: [:show, :edit, :create, :update, :destroy] do
-      resource :contacts
-      # resource :events
+  resources :events
+
+  resources :users, only: [:show, :edit, :create, :update, :destroy] do 
+      resources :contacts
   end
   resource :session, only: [:create, :destroy]
 

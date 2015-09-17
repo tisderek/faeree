@@ -38,7 +38,7 @@
     </a>
   </div>
   <div class="pusher">
-    <div id="headerbar" class="ui large borderless inverted primary top attached menu">
+    <div id="headerbar" class="ui large borderless primary top attached menu">
       <div class="left menu">
         <a class="center aligned item">
           <i class="sidebar icon"></i>
@@ -55,15 +55,13 @@
         </a>
       </div>
     </div>
-    <div id="navbar" class="ui three item secondary pointing large green bottom attached menu">
-      <a class="item" id="navbar-park" href="/park">
-      <i class="car icon"></i>
-         Park
-      </a>
+    <div id="navbar" class="ui three item secondary pointing large blue bottom attached menu">
+      <%= link_to new_event_path, class:"item", id:"navbar-park" do %>
+        <i class="car icon"></i> Park
+      <% end %>
       <a class="item" id="navbar-dashboard" href="/">
       <i class="dashboard icon"></i>
         Dashboard
-      <%#= link_to 'Edit', edit_users_path %>
       </a>
       <a class="item" id="navbar-options" href="/options">
       <i class="options icon"></i>

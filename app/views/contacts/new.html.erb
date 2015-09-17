@@ -1,21 +1,10 @@
-<!-- <div id="contact-new" >
-	<h2 class="ui header">
-		 <i class="add user icon"></i>
-		New Contact
-	</h2>
-	<br>
-	<%#= render 'form' %>
-	
-</div> -->
-
-
 <div id="contact-new" >
 	<h2 class="ui header">
 		 <i class="add user icon"></i>
 		New Contact
 	</h2>
 	<br>
-	<%= form_for :user_contact, url: users_contacts_path, method:"POST",  html: {class: "ui large fluid form"}  do |f| %>
+	<%= form_for @contact, url: user_contacts_path, method:"POST",  html: {class: "ui large fluid form"}  do |f| %>
 
 			<div class="inline field">
 			 	<%= f.label :contact_name do %>
