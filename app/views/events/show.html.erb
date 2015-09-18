@@ -71,11 +71,11 @@
           </div>
         </div>
         <div class="ui two bottom attached buttons">
-          <a href="/parked/<%= @event.id %>/text" id="send_sms" class="ui basic blue button" >
+          <a href="/parked/<%= @event.id %>/text" id="send_sms" class="ui basic button" >
             <i class="send icon"></i>
             Send text
           </a>
-          <div class="ui basic red button">
+          <div class="ui basic button">
             <i class="trash icon"></i>
             Delete
           </div>
@@ -90,7 +90,7 @@
           <div class="header"> Location </div>
         </div>
         <div class="image">
-          <img src="https://api.tiles.mapbox.com/v4/mapbox.emerald/pin-l-car+f2711c(<%= @event.lng %>,<%= @event.lat%>,1)/<%= @event.lng %>,<%= @event.lat%>,18/290x290.png?access_token=pk.eyJ1IjoidGlzZGVyZWsiLCJhIjoiZjkyNGM0NzNmMmJkZDcwNDY1ZTFjZjdmMjg5ZjVjYjcifQ.L45m9mxolxtTCizyjYLzGA">
+          <img src="https://api.tiles.mapbox.com/v4/mapbox.emerald/pin-l-car+f2711c(<%= @event.lng %>,<%= @event.lat%>,1)/<%= @event.lng %>,<%= @event.lat%>,18/290x275.png?access_token=pk.eyJ1IjoidGlzZGVyZWsiLCJhIjoiZjkyNGM0NzNmMmJkZDcwNDY1ZTFjZjdmMjg5ZjVjYjcifQ.L45m9mxolxtTCizyjYLzGA">
         </div>
         <div class="content">
           <span>
@@ -100,7 +100,7 @@
         </div>
         <div class="extra content">
           <a>
-            <i class="wait icon"></i>
+            <i class="calendar icon"></i>
             <%= format_datetime(@event.created_at.in_time_zone("Pacific Time (US & Canada)")) %>
           </a>
         </div>

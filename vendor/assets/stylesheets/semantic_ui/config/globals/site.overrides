@@ -2,3 +2,10 @@
          Site Overrides
 *******************************/
 
+div .pusher {
+  background-color: "#E0E0E0" 
+}
+
+div#navbar.ui.menu {
+  background-color: "#EEEEEE"
+}

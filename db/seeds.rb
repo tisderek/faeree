@@ -35,7 +35,7 @@ RGeo::Shapefile::Reader.open(itineraries_seed_file) do |file|
   end
   file.rewind
   record = file.next
-end
+
 
 Contact.create(
     contact_name: "Leo",
