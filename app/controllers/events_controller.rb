@@ -31,11 +31,12 @@ class EventsController < ApplicationController
   def destroy
   end
 
-  def notify
+  def send_info_text
+    p params
     @event = Event.find(params[:id])
-    user.send_sms(
-        "faeree: Make sure to move your vehicle before #{@event.get_route.strftime("%A at %-l:%M%P")}"
-      )
+    @event.send_sms(
+        "faeree: You've parked by #{self.streetnumber} #{self.streetname}, and you should move before #{format_address(self.get_route)}"
+    )
   end
 
   private

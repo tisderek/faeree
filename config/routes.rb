@@ -6,6 +6,7 @@ Rails.application.routes.draw do
   get  'main/upgrade',    path: '/upgrade',   as:'upgrade'
   get  'main/dashboard',                      as:'dashboard'
   # get  'event/new',       path: '/park'
+  get  'events/:id/info_text', to:'events#send_info_text'
 
   resources :events
 

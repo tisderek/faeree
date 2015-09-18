@@ -30,11 +30,7 @@ RGeo::Shapefile::Reader.open(itineraries_seed_file) do |file|
     args.delete(:district)
     args.delete(:nhood)
     args.delete(:zip_code)
-    p "********* ARGS *************"
-    p args
-    p "********* OBJ *************"
-    p Itinerary.create(args)
-    break if record.index == 100
+    Itinerary.create(args)
   end
   file.rewind
   record = file.next

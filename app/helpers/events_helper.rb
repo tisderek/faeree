@@ -1,11 +1,12 @@
 module EventsHelper
   
-  def send_sms(to_number, body_text)
+  def send_sms(body_text)
 
     twilio_SID = 'AC353193f53993d0d25fde1832142cb278'
     twilio_token = 'a1fdbf3a9b4f14136ce094e57aafa90e'
     client = Twilio::Rest::Client.new twilio_SID, twilio_token
     from = '+14152341719'
+    to_number = self.user.phone
 
     message = client.account.messages.create(
       from: from,
