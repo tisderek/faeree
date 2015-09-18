@@ -20,10 +20,11 @@ class Itinerary < ActiveRecord::Base
     "CT" => "Court",
     "TER" => "Terrace",
     "ALY" => "Alley",
-    "PL" => "Place"
+    "PL" => "Place",
+    "WAY" => "Way"
   }
 
-  before_create :replace_abbreviated_address, :replace_abbreviated_weekday
+  before_create :replace_abbreviated_address, :replace_abbreviated_weekday, :format_address
 
   # before_create callbacks
 
@@ -34,19 +35,25 @@ class Itinerary < ActiveRecord::Base
     name_array.delete_at(-2)
     self.streetname = name_array.join(" ")
     # delete below after making format_address
-    self.streetname = self.streetname.titlecase
+    # self.streetname = self.streetname.titlecase
   end
 
-  # def format_address
-  #   address = self.streetname
-  #   if address.first.is_a? Integer
-  #     address_array = adress.split(" ")
+  def is_a_integer?(obj)
+    obj.to_i.to_s == obj
+  end
 
-  #   else
-  #     self.streetname = address.titlecase
-
-  #   end
-  # end
+  def format_address
+    address = self.streetname
+    if is_a_integer?(address.first)
+      address_array = address.split(" ")
+      address_array[0].slice!(0) if address_array[0].first.to_i == 0
+      number = address_array[0].downcase
+      remainder = address_array[1..-1].join(" ").titlecase
+      self.streetname = "#{number} #{remainder}"
+    else
+      self.streetname = address.titlecase
+    end
+  end
 
   def replace_abbreviated_weekday
     self.weekday = LONG_FORM_WEEKDAYS[self.weekday]

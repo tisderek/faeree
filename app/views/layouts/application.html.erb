@@ -16,7 +16,7 @@
 </head>
 <body>
   <div id="sidebar" class="ui inverted labeled icon left inline vertical sidebar menu">
-    <a class="item" id="sidebar-options" href="#">
+<!--     <a class="item" id="sidebar-options" href="#">
       <i class="send outline icon"></i>
       Tell friends
     </a>
@@ -35,7 +35,7 @@
     <a class="item" id="sidebar-logout" href="main/session_destroy">
       <i class="external icon"></i>
       Logout
-    </a>
+    </a> -->
   </div>
   <div class="pusher">
     <div id="headerbar" class="ui large borderless primary top attached menu">
@@ -59,14 +59,12 @@
       <%= link_to new_event_path, class:"item", id:"navbar-park" do %>
         <i class="car icon"></i> Park
       <% end %>
-      <a class="item" id="navbar-dashboard" href="/">
-      <i class="dashboard icon"></i>
-        Dashboard
-      </a>
-      <a class="item" id="navbar-options" href="/options">
-      <i class="options icon"></i>
-        Options
-      </a>
+      <%= link_to dashboard_path, class:"item", id:"navbar-dashboard" do %>
+        <i class="dashboard icon"></i> Dashboard
+      <% end %>
+      <%= link_to options_path, class:"item", id:"navbar-options" do %>
+        <i class="options icon"></i> Options
+      <% end %>
     </div>
 
     <div id="page-content" class="ui container ">
