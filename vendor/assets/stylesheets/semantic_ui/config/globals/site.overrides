@@ -10,11 +10,8 @@ div#navbar.ui.menu {
   background-color: #F5F5F5
 }
 
-
-.ui[class*="top attached"].menu#headerbar {
-  border-radius: 0;
-}
-
-.ui.menu {
+.ui.menu#headerbar, .ui.menu#navbar {
   border: 0;
+  border-radius: 0;
+
 }

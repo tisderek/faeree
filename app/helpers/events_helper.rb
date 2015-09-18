@@ -24,6 +24,19 @@ module EventsHelper
     TimeDifference.between(datetime, Time.now).in_general
   end
 
+  def countdown_days(datetime)
+    countdown_to(datetime)[:days]
+  end
+
+  def countdown_hours(datetime)
+    countdown_to(datetime)[:hours]
+  end
+
+  def countdown_minutes(datetime)
+    countdown_to(datetime)[:minutes]
+  end
+
+
 end
 
 

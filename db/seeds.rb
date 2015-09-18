@@ -2,9 +2,9 @@ require 'rgeo/shapefile'
 
 User.create(
     name: "Derek",
-    email: "the@admin.com",
-    phone: 4154168654,
-    password: 123123
+    email: "derek@faeree.co",
+    phone: 4154168686,
+    password: 12341234
 )
 
 Event.create(
@@ -39,12 +39,12 @@ RGeo::Shapefile::Reader.open(itineraries_seed_file) do |file|
 
 Contact.create(
     contact_name: "Leo",
-    contact_phone: 9172735014,
+    contact_phone: 9172735555,
     user_id: 1
   )
 
 Contact.create(
     contact_name: "Karen",
-    contact_phone: 4152239884,
+    contact_phone: 4152239999,
     user_id: 1
   )

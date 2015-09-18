@@ -22,7 +22,7 @@
   var geolocate = document.getElementById('geolocate-park-btn');
   var map = L.mapbox.map('map', 'mapbox.emerald', {
     center: [37.7833, -122.4167],
-    zoom: 16
+    zoom: 19
   });
 
   var myLayer = L.mapbox.featureLayer().addTo(map);
@@ -40,12 +40,12 @@
     // on it, and add a single marker.
     map.on('locationfound', function(e) {
       map.fitBounds(e.bounds);
-      // console.log(e.bounds);
       myLayer.setGeoJSON({
         type: 'Feature',
         geometry: {
           type: 'Point',
-          coordinates: [e.latlng.lng, e.latlng.lat]
+          coordinates: [e.latlng.lng, e.latlng.lat],
+          zoom: 16
         },
         properties: {
           'marker-size': 'large',

@@ -1,9 +1,8 @@
 <div id="parked-body">
   <div class="ui container">
   <br>
-  <div class="ui two column stackable grid centered container">
-    <div class="column">
-      <div class="ui centralized card">
+  <div class="ui centered doubling cards">
+      <div class="ui card">
         <div class="content">
           <div class="header">
             Next Street Cleaning
@@ -20,7 +19,7 @@
         </div>
         <div class="ui vertical segment">
           <div class="ui top left attached label">
-            Countdown
+             <i class="wait icon"></i> Countdown
           </div>
           <div class="ui three mini statistics">
             <div class=" statistic">
@@ -28,7 +27,7 @@
                 <%= countdown_to(@event.get_route)[:days] %>
               </div>
               <div class="label">
-                days
+                <%= "day".pluralize(countdown_to(@event.get_route)[:days]) %>
               </div>
             </div>
             <div class="statistic">
@@ -36,7 +35,7 @@
                 <%= countdown_to(@event.get_route)[:hours] %>
               </div>
               <div class="label">
-                hours
+                <%= "hour".pluralize(countdown_to(@event.get_route)[:hours]) %>
               </div>
             </div>
             <div class="statistic">
@@ -44,7 +43,7 @@
                 <%= countdown_to(@event.get_route)[:minutes] %>
               </div>
               <div class="label">
-                minutes
+                <%= "minute".pluralize(countdown_to(@event.get_route)[:minutes]) %>
               </div>
             </div>
           </div>
@@ -52,7 +51,7 @@
         <div id="text-toggle-buttons" class="ui vertical segment">
           <div style="margin-left: 1.5em!important" class="content">
             <div class="ui top left attached label">
-              Text Notifications
+              <i class="alarm outline icon"></i> Text Notifications
             </div>
             <div class="ui toggle disabled checkbox">
               <input type="checkbox" name="time-based-alert" checked>
@@ -81,9 +80,7 @@
           </div>
         </div>
       </div>
-    </div>
 
-    <div class="column">
 
       <div class="ui orange card">
         <div class="content">
@@ -106,7 +103,6 @@
         </div>
       </div>
 
-    </div>
   </div>
 </div>
 </div>
