@@ -2,10 +2,19 @@
          Site Overrides
 *******************************/
 
-div .pusher {
-  background-color: "#E0E0E0" 
+div.pusher, body {
+  background-color: #EEEEEE
 }
 
 div#navbar.ui.menu {
-  background-color: "#EEEEEE"
+  background-color: #F5F5F5
+}
+
+
+.ui[class*="top attached"].menu#headerbar {
+  border-radius: 0;
+}
+
+.ui.menu {
+  border: 0;
 }
