@@ -3,11 +3,12 @@ class Itinerary < ActiveRecord::Base
   LONG_FORM_WEEKDAYS = {
     "Sun" => "Sunday",
     "Mon" => "Monday",
-    "Tue" => "Tuesday",
+    "Tues" => "Tuesday",
     "Wed" => "Wednesday",
     "Thu" => "Thursday",
     "Fri" => "Friday",
-    "Sat" => "Saturday"
+    "Sat" => "Saturday",
+    "Holiday" => "Holiday"
   }
 
   LONG_FORM_ADDRESSES = {
@@ -52,6 +53,7 @@ class Itinerary < ActiveRecord::Base
   end
   
   def date_of_next(day)
+    binding.pry
     date  = Date.parse(day)
     delta = date >= Date.today ? 0 : 7
     date + delta
