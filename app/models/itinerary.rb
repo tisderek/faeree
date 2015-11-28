@@ -1,4 +1,5 @@
 class Itinerary < ActiveRecord::Base
+  include ItinerariesHelper
 
   LONG_FORM_WEEKDAYS = {
     "Sun" => "Sunday",
@@ -25,8 +26,6 @@ class Itinerary < ActiveRecord::Base
   }
 
   before_create :replace_abbreviated_address, :replace_abbreviated_weekday, :format_address
-
-  # before_create callbacks
 
   def replace_abbreviated_address
     name_array = self.streetname.split(" ")
