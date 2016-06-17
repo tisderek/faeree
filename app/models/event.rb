@@ -2,11 +2,11 @@ class Event < ActiveRecord::Base
   include DateTimeHelper
   include Geokit
 
-  validates :user_id, presence:true
-  validates :street_name, presence:true
-  validates :street_number, presence:true
+  # validates :user_id, presence:true
+  # validates :street_name, presence:true
+  # validates :street_number, presence:true
 
-  before_validation :reverse_geocode
+  # before_validation :reverse_geocode
   belongs_to  :user
 
   def reverse_geocode
@@ -39,6 +39,7 @@ class Event < ActiveRecord::Base
 
   def side_filter
     parked = self
+    binding.pry
     self.floor_filter.select do |r|
       match_of_parked_num_and_lowest = r.parked_num_and_lowest_match?(parked)
       match_of_lowest_num_and_cnn = r.lowest_num_and_cnn_match?

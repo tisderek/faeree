@@ -15,8 +15,19 @@ class CreateItineraries < ActiveRecord::Migration
       t.boolean     :week3ofmon
       t.boolean     :week4ofmon
       t.boolean     :week5ofmon
+
+      t.string      :street
+      t.integer     :start_num
+      t.integer     :end_num
+      t.int4range   :range
+      t.text        :even_sched
+      t.text        :odd_sched
       t.boolean     :holidays
-      
+
+      t.string      :side
+      t.boolean     :match
+      t.boolean      :floor_even
+
       t.timestamps null: false
     end
   end

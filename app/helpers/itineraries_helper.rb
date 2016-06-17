@@ -1,6 +1,7 @@
 module ItinerariesHelper
 
-  def self.import
+  def schedule
+    create_weekly_schedule
   end
 
   def runs_every_week?
@@ -22,11 +23,11 @@ module ItinerariesHelper
   end
 
   def create_weekly_schedule
-    sched = IceCube::Schedule.new
+    returned_schedule = IceCube::Schedule.new
     if itinerary.runs_every_week
-      sched.add_recurrence_rule IceCube::Rule.weekly.day(on(itinerary.weekday))
+      returned_schedule.add_recurrence_rule IceCube::Rule.weekly.day(on(itinerary.weekday))
     else
-      sched.add_recurrence_rule IceCube::Rule.monthly.day_of_week(
+      returned_schedule.add_recurrence_rule IceCube::Rule.monthly.day_of_week(
         on(self.weekday) => f.weeks_of_month
       )
     end

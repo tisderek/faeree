@@ -1,4 +1,21 @@
-require 'rgeo/shapefile'
+# ImportHelper::ItineraryImport.process_all
+
+itineraries_seed_file = File.join(Rails.root, 'db', 'itineraries_seed', 'itineraries_seed.shp')
+RGeo::Shapefile::Reader.open(itineraries_seed_file) do |file|
+  file.each do |item|
+    record = Hash[item.attributes.map{|(k,v)| [k.downcase.to_sym,v]}]
+    record.delete(:blockside)
+    record.delete(:blocksweep)
+    record.delete(:cnn)
+    record.delete(:corridor)
+    record.delete(:district)
+    record.delete(:nhood)
+    record.delete(:zip_code)
+    Itinerary.create(record)
+  end
+  file.rewind
+  item = file.next
+end
 
 User.create(
     name: "Derek",
@@ -7,34 +24,6 @@ User.create(
     password: 12341234
 )
 
-Event.create(
-  lat: 37.769185,
-  lng: -122.430613,
-  user_id: 1
-)
-
-Event.create(
-  lat: 37.769618,
-  lng: -122.430886,
-  user_id: 1
-)
-
-itineraries_seed_file = File.join(Rails.root, 'db', 'itineraries_seed', 'itineraries_seed.shp')
-RGeo::Shapefile::Reader.open(itineraries_seed_file) do |file|
-  file.each do |record|
-    args = Hash[record.attributes.map{|(k,v)| [k.downcase.to_sym,v]}]
-    args.delete(:blockside)
-    args.delete(:blocksweep)
-    args.delete(:cnn)
-    args.delete(:corridor)
-    args.delete(:district)
-    args.delete(:nhood)
-    args.delete(:zip_code)
-    Itinerary.create(args)
-  end
-  file.rewind
-  record = file.next
-end
 
 
 Contact.create(
